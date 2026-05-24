@@ -1,34 +1,68 @@
-# TODO: insert locals here.
+# locals.tf
+
+# Placeholder locals - to be replaced with actual data from generated files
+# Run `make generate` to regenerate these from source data
+
 locals {
-  managed_identities = {
-    system_assigned_user_assigned = (var.managed_identities.system_assigned || length(var.managed_identities.user_assigned_resource_ids) > 0) ? {
-      this = {
-        type                       = var.managed_identities.system_assigned && length(var.managed_identities.user_assigned_resource_ids) > 0 ? "SystemAssigned, UserAssigned" : length(var.managed_identities.user_assigned_resource_ids) > 0 ? "UserAssigned" : "SystemAssigned"
-        user_assigned_resource_ids = var.managed_identities.user_assigned_resource_ids
-      }
-    } : {}
-    system_assigned = var.managed_identities.system_assigned ? {
-      this = {
-        type = "SystemAssigned"
-      }
-    } : {}
-    user_assigned = length(var.managed_identities.user_assigned_resource_ids) > 0 ? {
-      this = {
-        type                       = "UserAssigned"
-        user_assigned_resource_ids = var.managed_identities.user_assigned_resource_ids
-      }
-    } : {}
+  # CAF abbreviations: map of resource key to abbreviation
+  # Keys use resource names without "azurerm_" prefix
+  # Data source: _locals.abbreviations.tf (generated)
+  # Example:
+  #   key_vault       = "kv"
+  #   storage_account = "st"
+  abbreviations = local._abbreviations
+  h10           = length(var.unique_string_seed) > 0 ? substr(local.unique_string_hash, 0, 10) : ""
+  h11           = length(var.unique_string_seed) > 0 ? substr(local.unique_string_hash, 0, 11) : ""
+  h12           = length(var.unique_string_seed) > 0 ? substr(local.unique_string_hash, 0, 12) : ""
+  h13           = length(var.unique_string_seed) > 0 ? substr(local.unique_string_hash, 0, 13) : ""
+  # Hash length variants (h3 through h13)
+  # Use these for short resource name suffixes
+  h3 = length(var.unique_string_seed) > 0 ? substr(local.unique_string_hash, 0, 3) : ""
+  h4 = length(var.unique_string_seed) > 0 ? substr(local.unique_string_hash, 0, 4) : ""
+  h5 = length(var.unique_string_seed) > 0 ? substr(local.unique_string_hash, 0, 5) : ""
+  h6 = length(var.unique_string_seed) > 0 ? substr(local.unique_string_hash, 0, 6) : ""
+  h7 = length(var.unique_string_seed) > 0 ? substr(local.unique_string_hash, 0, 7) : ""
+  h8 = length(var.unique_string_seed) > 0 ? substr(local.unique_string_hash, 0, 8) : ""
+  h9 = length(var.unique_string_seed) > 0 ? substr(local.unique_string_hash, 0, 9) : ""
+  # Zero-padded instance number for sequential naming
+  instance = var.instance_number != null ? format("%0${var.instance_padding}d", var.instance_number) : ""
+  # Resource types: map of resource key to Azure ARM type
+  # Data-plane resources have null value
+  # Data source: _locals.resource_types.tf (generated)
+  # Example:
+  #   key_vault        = "Microsoft.KeyVault/vaults"
+  #   storage_account  = "Microsoft.Storage/storageAccounts"
+  #   key_vault_secret = null
+  resource_types = local._resource_types
+  # Naming rules: map of resource key to rule object
+  # Data source: _locals.rules.tf (generated)
+  # Example:
+  #   key_vault = {
+  #     arm_type     = "Microsoft.KeyVault/vaults"
+  #     abbreviation = "kv"
+  #     min_length   = 3
+  #     max_length   = 24
+  #     pattern      = "^[a-zA-Z][a-zA-Z0-9-]{1,22}[a-zA-Z0-9]$"
+  #     scope        = "global"
+  #   }
+  #   key_vault_secret = {
+  #     arm_type     = null  # Data-plane resource
+  #     abbreviation = "kvsec"
+  #     min_length   = 1
+  #     max_length   = 127
+  #     pattern      = "^[a-zA-Z0-9-]+$"
+  #     scope        = "data"
+  #   }
+  rules = local._rules
+  # Sanitized inputs (lowercase alphanumeric only)
+  # First convert to lowercase, then remove non-alphanumeric characters
+  sanitized = {
+    for k, v in var.sanitize_inputs : k => replace(lower(v), "/[^a-z0-9]/", "")
   }
-  # Private endpoint application security group associations.
-  # We merge the nested maps from private endpoints and application security group associations into a single map.
-  private_endpoint_application_security_group_associations = { for assoc in flatten([
-    for pe_k, pe_v in var.private_endpoints : [
-      for asg_k, asg_v in pe_v.application_security_group_associations : {
-        asg_key         = asg_k
-        pe_key          = pe_k
-        asg_resource_id = asg_v
-      }
-    ]
-  ]) : "${assoc.pe_key}-${assoc.asg_key}" => assoc }
-  role_definition_resource_substring = "/providers/Microsoft.Authorization/roleDefinitions"
+  unique_string_hash = length(var.unique_string_seed) > 0 ? sha256(local.unique_string_input) : ""
+  # Unique string hash generation (similar to ARM uniqueString)
+  # Uses SHA256 for deterministic, reproducible hashes
+  unique_string_input = join("-", var.unique_string_seed)
+  # Valid scope values
+  valid_scopes = ["global", "subscription", "resource_group", "parent", "data"]
 }

@@ -1,3 +1,3 @@
 # Tests
 
-Create tests in the provided subdirectories.
+This directory is reserved for module tests.

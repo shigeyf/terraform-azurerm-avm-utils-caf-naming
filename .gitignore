@@ -1,3 +1,7 @@
+# .gitignore for Terraform projects
+
+tmp/
+
 # Local .terraform directories
 **/.terraform/*
 

@@ -1,3 +1,5 @@
+# main.telemetry.tf
+
 data "azapi_client_config" "telemetry" {
   count = var.enable_telemetry ? 1 : 0
 }
@@ -9,9 +11,8 @@ data "modtm_module_source" "telemetry" {
 }
 
 locals {
-  # If your module does not support a location, then set this local to "unknown"
-  # If the location is sourced from a collection or other value, then you can update this local to set it to the location
-  main_location = var.location
+  # This is a utility module that does not deploy resources to a specific location
+  main_location = "unknown"
 }
 
 resource "random_uuid" "telemetry" {

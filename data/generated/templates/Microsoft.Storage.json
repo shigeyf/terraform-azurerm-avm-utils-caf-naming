@@ -1,0 +1,18 @@
+[
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "azurerm_storage_account",
+    "abbreviation": "st",
+    "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
+    "validText": "Lowercase letters and numbers",
+    "scope": "global",
+    "pattern": "^[a-z0-9]+$",
+    "maxLength": 24,
+    "minLength": 3,
+    "_source": {
+      "pattern": "api_specs",
+      "minLength": "api_specs",
+      "maxLength": "api_specs"
+    }
+  }
+]

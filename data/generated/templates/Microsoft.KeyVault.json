@@ -1,0 +1,18 @@
+[
+  {
+    "type": "Microsoft.KeyVault/vaults",
+    "name": "azurerm_key_vault",
+    "abbreviation": "kv",
+    "description": "The name of the key vault which contains the key to be created.",
+    "validText": "Alphanumerics and hyphensStart with a letter. End with letter or number. Can't contain consecutive hyphens.",
+    "scope": "global",
+    "pattern": "^[a-zA-Z0-9-]{3,24}$",
+    "maxLength": 24,
+    "minLength": 3,
+    "_source": {
+      "pattern": "api_specs",
+      "minLength": "Azure Naming Tool",
+      "maxLength": "Azure Naming Tool"
+    }
+  }
+]
