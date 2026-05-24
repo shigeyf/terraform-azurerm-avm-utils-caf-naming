@@ -1,5 +1,14 @@
 {
   "files.eol": "\n",
+  "files.associations": {
+    "**/terraform.tfvars.sample": "terraform-vars"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "chat.agent.maxRequests": 500,
   "chat.math.enabled": true,
   "chat.todoListTool.enabled": true,

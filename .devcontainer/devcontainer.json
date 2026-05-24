@@ -3,6 +3,7 @@
   "containerEnv": {
     "AVM_IN_CONTAINER": "true"
   },
+  "remoteUser": "nonroot",
   "updateRemoteUserUID": true,
   "runArgs": [
     "--cap-add=SYS_PTRACE",
@@ -18,12 +19,15 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "terraform.languageServer.terraform.path": "/home/runtimeuser/tfenv/bin/terraform"
+        "terraform.languageServer.terraform.path": "/usr/bin/terraform"
       },
       "extensions": [
+        "esbenp.prettier-vscode",
+        "hashicorp.terraform",
         "ms-azuretools.vscode-azureterraform",
-        "EditorConfig.EditorConfig",
-        "hashicorp.terraform"
+        "ms-vscode.azurecli",
+        "ms-vscode.makefile-tools",
+        "redhat.vscode-yaml"
       ]
     }
   }

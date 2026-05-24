@@ -1,7 +1,10 @@
 {
   "recommendations": [
-    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
     "hashicorp.terraform",
-    "ms-azuretools.vscode-azureterraform"
+    "ms-azuretools.vscode-azureterraform",
+    "ms-vscode.azurecli",
+    "ms-vscode.makefile-tools",
+    "redhat.vscode-yaml"
   ]
 }
