@@ -1,0 +1,20 @@
+[
+  {
+    "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+    "name": "azurerm_user_assigned_identity",
+    "abbreviation": "id",
+    "description": "The name of the user assigned identity resource.",
+    "validText": "Alphanumerics, hyphens, and underscores. Start with a letter or number.",
+    "scope": "resource_group",
+    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+    "maxLength": 128,
+    "minLength": 3,
+    "_source": {
+      "type": "azure-rest-api-specs",
+      "abbreviation": "mslearn-abbreviations",
+      "pattern": "azurecaf-provider",
+      "minLength": "azurecaf-provider",
+      "maxLength": "azurecaf-provider"
+    }
+  }
+]

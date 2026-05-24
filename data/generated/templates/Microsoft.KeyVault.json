@@ -10,9 +10,11 @@
     "maxLength": 24,
     "minLength": 3,
     "_source": {
-      "pattern": "api_specs",
-      "minLength": "Azure Naming Tool",
-      "maxLength": "Azure Naming Tool"
+      "type": "azure-rest-api-specs",
+      "abbreviation": "mslearn-abbreviations",
+      "pattern": "azure-rest-api-specs",
+      "minLength": "azurecaf-provider",
+      "maxLength": "azurecaf-provider"
     }
   }
 ]

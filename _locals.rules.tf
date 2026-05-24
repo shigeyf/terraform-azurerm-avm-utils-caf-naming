@@ -15,6 +15,54 @@ locals {
       pattern      = "^[a-zA-Z0-9-]{3,24}$"
       scope        = "global"
     }
+    linux_virtual_machine = {
+      arm_type     = "Microsoft.Compute/virtualMachines"
+      abbreviation = "vm"
+      min_length   = 1
+      max_length   = 64
+      pattern      = "^[a-zA-Z0-9][-a-zA-Z0-9_.]*[a-zA-Z0-9]$"
+      scope        = "resource_group"
+    }
+    managed_disk = {
+      arm_type     = "Microsoft.Compute/disks"
+      abbreviation = "disk"
+      min_length   = 1
+      max_length   = 80
+      pattern      = "^[a-zA-Z0-9_-]+$"
+      scope        = "resource_group"
+    }
+    network_interface = {
+      arm_type     = "Microsoft.Network/networkInterfaces"
+      abbreviation = "nic"
+      min_length   = 1
+      max_length   = 80
+      pattern      = "^[a-zA-Z0-9][a-zA-Z0-9_.-]*[a-zA-Z0-9_]$"
+      scope        = "resource_group"
+    }
+    network_security_group = {
+      arm_type     = "Microsoft.Network/networkSecurityGroups"
+      abbreviation = "nsg"
+      min_length   = 1
+      max_length   = 80
+      pattern      = "^[a-zA-Z0-9][a-zA-Z0-9_.-]*[a-zA-Z0-9_]$"
+      scope        = "resource_group"
+    }
+    public_ip = {
+      arm_type     = "Microsoft.Network/publicIPAddresses"
+      abbreviation = "pip"
+      min_length   = 1
+      max_length   = 80
+      pattern      = "^[A-Za-z0-9][A-Za-z0-9_.-]*[A-Za-z0-9_]$"
+      scope        = "resource_group"
+    }
+    resource_group = {
+      arm_type     = "Microsoft.Resources/resourceGroups"
+      abbreviation = "rg"
+      min_length   = 1
+      max_length   = 90
+      pattern      = "^[a-zA-Z0-9-._()]{0,89}[a-zA-Z0-9-_()]$"
+      scope        = "subscription"
+    }
     storage_account = {
       arm_type     = "Microsoft.Storage/storageAccounts"
       abbreviation = "st"
@@ -22,6 +70,46 @@ locals {
       max_length   = 24
       pattern      = "^[a-z0-9]+$"
       scope        = "global"
+    }
+    subnet = {
+      arm_type     = "Microsoft.Network/virtualNetworks/subnets"
+      abbreviation = "snet"
+      min_length   = 1
+      max_length   = 80
+      pattern      = "^[a-zA-Z0-9][a-zA-Z0-9_.-]*[a-zA-Z0-9_]$"
+      scope        = "parent"
+    }
+    user_assigned_identity = {
+      arm_type     = "Microsoft.ManagedIdentity/userAssignedIdentities"
+      abbreviation = "id"
+      min_length   = 3
+      max_length   = 128
+      pattern      = "^[a-zA-Z0-9][a-zA-Z0-9_-]*$"
+      scope        = "resource_group"
+    }
+    virtual_machine = {
+      arm_type     = "Microsoft.Compute/virtualMachines"
+      abbreviation = "vm"
+      min_length   = 1
+      max_length   = 15
+      pattern      = "^[a-zA-Z0-9][-a-zA-Z0-9_.]*[a-zA-Z0-9]$"
+      scope        = "resource_group"
+    }
+    virtual_network = {
+      arm_type     = "Microsoft.Network/virtualNetworks"
+      abbreviation = "vnet"
+      min_length   = 2
+      max_length   = 64
+      pattern      = "^[a-zA-Z0-9][a-zA-Z0-9_.-]*[a-zA-Z0-9_]$"
+      scope        = "resource_group"
+    }
+    windows_virtual_machine = {
+      arm_type     = "Microsoft.Compute/virtualMachines"
+      abbreviation = "vm"
+      min_length   = 1
+      max_length   = 15
+      pattern      = "^[a-zA-Z0-9][-a-zA-Z0-9_]*[a-zA-Z0-9]$"
+      scope        = "resource_group"
     }
   }
 }

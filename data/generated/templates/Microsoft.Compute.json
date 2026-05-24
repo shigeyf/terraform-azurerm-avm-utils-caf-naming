@@ -1,0 +1,74 @@
+[
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "azurerm_virtual_machine",
+    "abbreviation": "vm",
+    "description": "The name of the virtual machine.",
+    "validText": "Can't use spaces, control characters, or these characters: ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\ | ; : . ' \" , < > / ? Windows VMs can't include periods or end with hyphens. Linux VMs can't end with periods or hyphens.",
+    "scope": "resource_group",
+    "pattern": "^[a-zA-Z0-9][-a-zA-Z0-9_.]*[a-zA-Z0-9]$",
+    "maxLength": 15,
+    "minLength": 1,
+    "_source": {
+      "type": "azure-rest-api-specs",
+      "abbreviation": "mslearn-abbreviations",
+      "pattern": "azure-rest-api-specs",
+      "minLength": "azurecaf-provider",
+      "maxLength": "mslearn-naming-rules"
+    }
+  },
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "azurerm_linux_virtual_machine",
+    "abbreviation": "vm",
+    "description": "The name of the Linux virtual machine.",
+    "validText": "Can't use spaces, control characters, or these characters: ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\ | ; : . ' \" , < > / ? Linux VMs can't end with periods or hyphens.",
+    "scope": "resource_group",
+    "pattern": "^[a-zA-Z0-9][-a-zA-Z0-9_.]*[a-zA-Z0-9]$",
+    "maxLength": 64,
+    "minLength": 1,
+    "_source": {
+      "type": "azure-rest-api-specs",
+      "abbreviation": "mslearn-abbreviations",
+      "pattern": "azure-rest-api-specs",
+      "minLength": "azurecaf-provider",
+      "maxLength": "azurecaf-provider"
+    }
+  },
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "azurerm_windows_virtual_machine",
+    "abbreviation": "vm",
+    "description": "The name of the Windows virtual machine.",
+    "validText": "Can't use spaces, control characters, or these characters: ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\ | ; : . ' \" , < > / ? Windows VMs can't include periods or end with hyphens.",
+    "scope": "resource_group",
+    "pattern": "^[a-zA-Z0-9][-a-zA-Z0-9_]*[a-zA-Z0-9]$",
+    "maxLength": 15,
+    "minLength": 1,
+    "_source": {
+      "type": "azure-rest-api-specs",
+      "abbreviation": "mslearn-abbreviations",
+      "pattern": "azure-rest-api-specs",
+      "minLength": "azurecaf-provider",
+      "maxLength": "mslearn-naming-rules"
+    }
+  },
+  {
+    "type": "Microsoft.Compute/disks",
+    "name": "azurerm_managed_disk",
+    "abbreviation": "disk",
+    "description": "The name of the managed disk.",
+    "validText": "Alphanumerics, underscores, and hyphens.",
+    "scope": "resource_group",
+    "pattern": "^[a-zA-Z0-9_-]+$",
+    "maxLength": 80,
+    "minLength": 1,
+    "_source": {
+      "type": "azure-rest-api-specs",
+      "abbreviation": "mslearn-abbreviations",
+      "pattern": "azurecaf-provider",
+      "minLength": "azurecaf-provider",
+      "maxLength": "azurecaf-provider"
+    }
+  }
+]

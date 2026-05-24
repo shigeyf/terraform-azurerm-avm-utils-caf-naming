@@ -1,0 +1,92 @@
+[
+  {
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "azurerm_virtual_network",
+    "abbreviation": "vnet",
+    "description": "The name of the virtual network.",
+    "validText": "Alphanumerics, underscores, periods, and hyphens. Start with alphanumeric. End with alphanumeric or underscore.",
+    "scope": "resource_group",
+    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*[a-zA-Z0-9_]$",
+    "maxLength": 64,
+    "minLength": 2,
+    "_source": {
+      "type": "azure-rest-api-specs",
+      "abbreviation": "mslearn-abbreviations",
+      "pattern": "azurecaf-provider",
+      "minLength": "azurecaf-provider",
+      "maxLength": "azurecaf-provider"
+    }
+  },
+  {
+    "type": "Microsoft.Network/virtualNetworks/subnets",
+    "name": "azurerm_subnet",
+    "abbreviation": "snet",
+    "description": "The name of the subnet.",
+    "validText": "Alphanumerics, underscores, periods, and hyphens. Start with alphanumeric. End with alphanumeric or underscore.",
+    "scope": "parent",
+    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*[a-zA-Z0-9_]$",
+    "maxLength": 80,
+    "minLength": 1,
+    "_source": {
+      "type": "azure-rest-api-specs",
+      "abbreviation": "mslearn-abbreviations",
+      "pattern": "azurecaf-provider",
+      "minLength": "azurecaf-provider",
+      "maxLength": "azurecaf-provider"
+    }
+  },
+  {
+    "type": "Microsoft.Network/networkSecurityGroups",
+    "name": "azurerm_network_security_group",
+    "abbreviation": "nsg",
+    "description": "The name of the network security group.",
+    "validText": "Alphanumerics, underscores, periods, and hyphens. Start with alphanumeric. End with alphanumeric or underscore.",
+    "scope": "resource_group",
+    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*[a-zA-Z0-9_]$",
+    "maxLength": 80,
+    "minLength": 1,
+    "_source": {
+      "type": "azure-rest-api-specs",
+      "abbreviation": "mslearn-abbreviations",
+      "pattern": "azurecaf-provider",
+      "minLength": "azurecaf-provider",
+      "maxLength": "azurecaf-provider"
+    }
+  },
+  {
+    "type": "Microsoft.Network/publicIPAddresses",
+    "name": "azurerm_public_ip",
+    "abbreviation": "pip",
+    "description": "The name of the public IP address.",
+    "validText": "Alphanumerics, underscores, periods, and hyphens. Start with alphanumeric. End with alphanumeric or underscore.",
+    "scope": "resource_group",
+    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*[A-Za-z0-9_]$",
+    "maxLength": 80,
+    "minLength": 1,
+    "_source": {
+      "type": "azure-rest-api-specs",
+      "abbreviation": "mslearn-abbreviations",
+      "pattern": "azure-rest-api-specs",
+      "minLength": "azure-rest-api-specs",
+      "maxLength": "azure-rest-api-specs"
+    }
+  },
+  {
+    "type": "Microsoft.Network/networkInterfaces",
+    "name": "azurerm_network_interface",
+    "abbreviation": "nic",
+    "description": "The name of the network interface.",
+    "validText": "Alphanumerics, underscores, periods, and hyphens. Start with alphanumeric. End with alphanumeric or underscore.",
+    "scope": "resource_group",
+    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*[a-zA-Z0-9_]$",
+    "maxLength": 80,
+    "minLength": 1,
+    "_source": {
+      "type": "azure-rest-api-specs",
+      "abbreviation": "mslearn-abbreviations",
+      "pattern": "azurecaf-provider",
+      "minLength": "azurecaf-provider",
+      "maxLength": "azurecaf-provider"
+    }
+  }
+]

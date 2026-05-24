@@ -1,0 +1,20 @@
+[
+  {
+    "type": "Microsoft.Resources/resourceGroups",
+    "name": "azurerm_resource_group",
+    "abbreviation": "rg",
+    "description": "A container that holds related resources for an Azure solution.",
+    "validText": "Alphanumerics, underscores, parentheses, hyphens, periods (except at end), and unicode characters that match the allowed characters.",
+    "scope": "subscription",
+    "pattern": "^[a-zA-Z0-9-._()]{0,89}[a-zA-Z0-9-_()]$",
+    "maxLength": 90,
+    "minLength": 1,
+    "_source": {
+      "type": "azure-rest-api-specs",
+      "abbreviation": "mslearn-abbreviations",
+      "pattern": "azurecaf-provider",
+      "minLength": "azurecaf-provider",
+      "maxLength": "azurecaf-provider"
+    }
+  }
+]

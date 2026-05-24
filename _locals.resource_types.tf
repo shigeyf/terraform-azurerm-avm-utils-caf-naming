@@ -7,7 +7,18 @@ locals {
   # Data-plane resources have null value
   # Use local._resource_types to access this data
   _resource_types = {
-    key_vault       = "Microsoft.KeyVault/vaults"
-    storage_account = "Microsoft.Storage/storageAccounts"
+    key_vault               = "Microsoft.KeyVault/vaults"
+    linux_virtual_machine   = "Microsoft.Compute/virtualMachines"
+    managed_disk            = "Microsoft.Compute/disks"
+    network_interface       = "Microsoft.Network/networkInterfaces"
+    network_security_group  = "Microsoft.Network/networkSecurityGroups"
+    public_ip               = "Microsoft.Network/publicIPAddresses"
+    resource_group          = "Microsoft.Resources/resourceGroups"
+    storage_account         = "Microsoft.Storage/storageAccounts"
+    subnet                  = "Microsoft.Network/virtualNetworks/subnets"
+    user_assigned_identity  = "Microsoft.ManagedIdentity/userAssignedIdentities"
+    virtual_machine         = "Microsoft.Compute/virtualMachines"
+    virtual_network         = "Microsoft.Network/virtualNetworks"
+    windows_virtual_machine = "Microsoft.Compute/virtualMachines"
   }
 }

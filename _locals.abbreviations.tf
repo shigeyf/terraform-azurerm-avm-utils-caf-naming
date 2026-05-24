@@ -7,7 +7,18 @@ locals {
   # Map of Terraform key to abbreviation string
   # Use local._abbreviations to access this data
   _abbreviations = {
-    key_vault       = "kv" # Microsoft.KeyVault/vaults
-    storage_account = "st" # Microsoft.Storage/storageAccounts
+    key_vault               = "kv"   # Microsoft.KeyVault/vaults
+    linux_virtual_machine   = "vm"   # Microsoft.Compute/virtualMachines
+    managed_disk            = "disk" # Microsoft.Compute/disks
+    network_interface       = "nic"  # Microsoft.Network/networkInterfaces
+    network_security_group  = "nsg"  # Microsoft.Network/networkSecurityGroups
+    public_ip               = "pip"  # Microsoft.Network/publicIPAddresses
+    resource_group          = "rg"   # Microsoft.Resources/resourceGroups
+    storage_account         = "st"   # Microsoft.Storage/storageAccounts
+    subnet                  = "snet" # Microsoft.Network/virtualNetworks/subnets
+    user_assigned_identity  = "id"   # Microsoft.ManagedIdentity/userAssignedIdentities
+    virtual_machine         = "vm"   # Microsoft.Compute/virtualMachines
+    virtual_network         = "vnet" # Microsoft.Network/virtualNetworks
+    windows_virtual_machine = "vm"   # Microsoft.Compute/virtualMachines
   }
 }
