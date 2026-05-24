@@ -4,6 +4,10 @@
 
 This module provides Cloud Adoption Framework (CAF) compliant naming data and utilities for Azure resources in Terraform.
 
+> **⚠️ Trial Version Notice**
+>
+> This module is currently being developed on a **trial basis**. Only a **limited set of Azure resource types** are supported at this time. Additional resource types may be added in future releases. Please verify that the resource types you need are available before using this module in production environments.
+
 ## Features
 
 ### CAF Resource Abbreviations
